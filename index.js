@@ -98,7 +98,8 @@ const preprocessor = (options = {}) => {
       // backup the original stack before it's potentially modified by bluebird
       err.originalStack = err.stack
       log(`errored bundling ${outputPath}`, err)
-      latestBundle.reject(err)
+      console.log(`errored bundling ${outputPath}`, err)
+      latestBundle.resolve(outputPath)
     }
 
     // this function is called when bundling is finished, once at the start
